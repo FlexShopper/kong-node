@@ -17,6 +17,8 @@
 
     client.apiStatus(handler);
 
+    client.apiInfo(handler);
+
     client.apis.getAll(handler);
 
     client.consumers.getAll(handler);
