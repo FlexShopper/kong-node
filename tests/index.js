@@ -5,24 +5,37 @@
 
     const client = new SDK({});
 
-    function handler (err, req, data) {
+    function reqHandler (err, req, data) {
         if (err) {
             throw err;
+            // return console.error(err);
         }
 
-        console.log('PATH', req.toJSON().request.uri.path);
+        console.log('PATH:', req.toJSON().request.uri.path);
+        console.log('statusCode:', req.statusCode);
         console.log('DATA', data);
         console.log('\n');
     }
 
-    client.apiStatus(handler);
+    // client.apiStatus(reqHandler);
 
-    client.apiInfo(handler);
+    // client.apiInfo(reqHandler);
 
-    client.apis.getAll(handler);
+    // client.apis.getAll(reqHandler);
 
-    client.consumers.getAll(handler);
+    // client.apis.create({
+    //     upstream_url: 'http://www.flexchopper.com',
+    //     // request_path: '/something really stupid',
+    //     request_host: 'ajorlazer.com'
+    // }, reqHandler);
 
-    client.plugins.getAll(handler);
+    // client.consumers.getAll(reqHandler);
+
+    // client.plugins.getAll(reqHandler);
+
+    // client.apis.find('', reqHandler);
+
+    client.apis.find('d6bfe2bc-ef31-4bfe-a6dd-9572b0c1cde4', reqHandler);
+
 })();
 
