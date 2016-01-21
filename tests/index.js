@@ -52,38 +52,52 @@
     //     });
     // });
 
-    client.apis.find('d6bfe2bc-ef31-4bfe-a6dd-9572b0c1cde4', function (err, req, data) {
-        console.log('GOT THIS', data);
+    // client.apis.find('d6bfe2bc-ef31-4bfe-a6dd-9572b0c1cde4', function (err, req, data) {
+    //     console.log('GOT THIS', data);
 
-        // var id = data.id;
+    //     // var id = data.id;
 
-        // delete data.created_at;
+    //     // delete data.created_at;
 
-        // data.request_host = 'thisismajorlazer.com';
-        // data.request_path = '/peace-is-the-updated-version';
+    //     // data.request_host = 'thisismajorlazer.com';
+    //     // data.request_path = '/peace-is-the-updated-version';
 
-        // // UPDATE
-        // client.apis.upsert(data, function (err, req, data) {
-        //     console.log('UDPATE WTIH UPSERT', err, data);
-        //     client.apis.find(data.id, reqHandler);
-        // });
+    //     // // UPDATE
+    //     // client.apis.upsert(data, function (err, req, data) {
+    //     //     console.log('UDPATE WTIH UPSERT', err, data);
+    //     //     client.apis.find(data.id, reqHandler);
+    //     // });
 
-        //INSERT
-        client.apis.upsert({
-            upstream_url: 'http://www.flexflexflexasdf.COM',
-            request_path: '/THIS-IS-AnoTHER-fucking-ATTEMPT-API-FROM-UPSERT6',
-            request_host: 'FLEXSHOPPAaNOTHERFUCKINGTHING.COM6',
-            name: 'FLEXCHOPPA'
-        }, function (err, req, data) {
-            console.log('INSERT WITH UPSERT', err, data);
-            if (!err && (req.statusCode === 200 || req.statusCode === 201)) {
-                console.log(req.toJSON());
+    //     // //INSERT
+    //     // client.apis.upsert({
+    //     //     upstream_url: 'http://www.flexflexflexasdf.COM',
+    //     //     request_path: '/THIS-IS-AnoTHER-fucking-ATTEMPT-API-FROM-UPSERT6',
+    //     //     request_host: 'FLEXSHOPPAaNOTHERFUCKINGTHING.COM6',
+    //     //     name: 'FLEXCHOPPA'
+    //     // }, function (err, req, data) {
+    //     //     console.log('INSERT WITH UPSERT', err, data);
+    //     //     if (!err && (req.statusCode === 200 || req.statusCode === 201)) {
+    //     //         console.log(req.toJSON());
 
-                return client.apis.find(data.id, reqHandler);
-            }
+    //     //         return client.apis.find(data.id, reqHandler);
+    //     //     }
 
-            console.log('it did not upserted data. Try again!');
-        });
+    //     //     console.log('it did not upserted data. Try again!');
+    //     // });
+    // });
+
+    client.apis.getAll(function (err, req, data) {
+        if (err) {
+            throw err;
+        }
+
+        console.log('\n\nERR', err, '\n\nREQ', req, '\n\nDATA', data, '\n\nREQJSON', req.toJSON());
+
+        client.apis.delete(data.data[0].id, reqHandler);
+
+        client.apis.delete(data.data[1].name, reqHandler);
+
+        client.apis.delete(data.data[0].name, reqHandler);
     });
 })();
 
