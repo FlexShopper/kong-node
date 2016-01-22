@@ -1,9 +1,0 @@
-POST /apis
-{
-    "name": "Mockbin",
-    "request_host": "mockbin.com",
-    "request_path": "/someservice",
-    "strip_request_path": false,
-    "preserve_host": false,
-    "upstream_url": "https://mockbin.com"
-}

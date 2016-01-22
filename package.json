@@ -1,5 +1,5 @@
 {
-  "name": "kong-node-sdk",
+  "name": "kong-node",
   "version": "1.0.0",
   "description": "KONGs API node SDK for internal use",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "scripts": {
     "test": "lab -t 100 --colors --sourcemaps --verbose --threshold 80"
   },
-  "author": "FlexShopper, LLC.",
+  "author": "SEE AUTHORS IN AUTHORS.md",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "code": "^2.1.0",

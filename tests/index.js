@@ -8,7 +8,6 @@
     function reqHandler (err, req, data) {
         if (err) {
             throw err;
-            // return console.error(err);
         }
 
         console.log('PATH:', req.toJSON().request.uri.path);
@@ -21,7 +20,19 @@
 
     // client.apiInfo(reqHandler);
 
-    // client.apis.getAll(reqHandler);
+    client.apis.getAll(reqHandler);
+
+    const getOpts = {
+        id: 'as-df-a-sd-f',
+        name: 'asdf',
+        request_host: 'asdfasdf.com',
+        request_path: '/asdfasdf/asdfasdf/as/df/asdf',
+        upstream_url: 'http://asdfadsf.com',
+        size: 100,
+        offset: 18
+    };
+
+    client.apis.getAll(getOpts, reqHandler);
 
     // client.apis.create({
     //     upstream_url: 'http://www.flexchoppa.com',
@@ -86,18 +97,18 @@
     //     // });
     // });
 
-    client.apis.getAll(function (err, req, data) {
-        if (err) {
-            throw err;
-        }
+    // client.apis.getAll(function (err, req, data) {
+    //     if (err) {
+    //         throw err;
+    //     }
 
-        console.log('\n\nERR', err, '\n\nREQ', req, '\n\nDATA', data, '\n\nREQJSON', req.toJSON());
+    //     console.log('\n\nERR', err, '\n\nREQ', req, '\n\nDATA', data, '\n\nREQJSON', req.toJSON());
 
-        client.apis.delete(data.data[0].id, reqHandler);
+    //     client.apis.delete(data.data[0].id, reqHandler);
 
-        client.apis.delete(data.data[1].name, reqHandler);
+    //     client.apis.delete(data.data[1].name, reqHandler);
 
-        client.apis.delete(data.data[0].name, reqHandler);
-    });
+    //     client.apis.delete(data.data[0].name, reqHandler);
+    // });
 })();
 
