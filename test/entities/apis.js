@@ -15,9 +15,9 @@
     describe('client.apis: Kong endpoint for API management', { timeout: 10000 }, () => {
         const client = new SDK();
         const dummyApi = {
-            upstream_url: 'http://www.flexchoppa.com',
-            request_path: '/something-really-stupid',
-            request_host: 'Fajorlazer.com'
+            upstream_url: 'http://www.flexshopper.com',
+            request_path: '/something-real',
+            request_host: 'flexmoney.com'
         };
 
         describe('client.apis#getAll', { timeout: 10000 }, () => {
@@ -285,7 +285,7 @@
             const upsData = dummyApi;
 
             upsData.strip_request_path = true;
-            upsData.upstream_url = 'http://fififi.com';
+            upsData.upstream_url = 'http://flexflexflex.com';
 
             it('should throw an error when called without arguments', (done) => {
                 expect(client.apis.upsert).to.throw(Error);
